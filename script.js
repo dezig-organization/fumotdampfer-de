@@ -531,25 +531,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileFeatureMedia.addListener(updateFeatureTextCollapse);
     }
 
-    const pointerPanels = document.querySelectorAll('.carousel-wrapper, .features-container, .product-intro, footer');
-
     if (!reduceMotion && window.matchMedia('(pointer: fine)').matches) {
-        pointerPanels.forEach((panel) => {
-            const updatePointer = (event) => {
-                const rect = panel.getBoundingClientRect();
-                const x = ((event.clientX - rect.left) / rect.width) * 100;
-                const y = ((event.clientY - rect.top) / rect.height) * 100;
-                panel.style.setProperty('--pointer-x', `${x}%`);
-                panel.style.setProperty('--pointer-y', `${y}%`);
-            };
-
-            panel.addEventListener('mousemove', updatePointer);
-            panel.addEventListener('mouseleave', () => {
-                panel.style.removeProperty('--pointer-x');
-                panel.style.removeProperty('--pointer-y');
-            });
-        });
-
         const heroSurface = document.querySelector('.hero-container');
         const heroFrame = document.querySelector('.image-frame');
 

@@ -1423,8 +1423,6 @@ body.is-ready .hero-buttons {
 }
 
 .carousel-wrapper {
-    --pointer-x: 50%;
-    --pointer-y: 50%;
     overflow: hidden;
 }
 
@@ -1434,12 +1432,11 @@ body.is-ready .hero-buttons {
     inset: 0;
     border-radius: inherit;
     background:
-        radial-gradient(280px circle at var(--pointer-x) var(--pointer-y), rgba(255, 255, 255, 0.12), transparent 62%),
         radial-gradient(circle at 12% 20%, rgba(89, 183, 255, 0.18), transparent 24%);
-    opacity: 0.8;
+    opacity: 0.55;
     mix-blend-mode: screen;
     pointer-events: none;
-    transition: background-position 0.25s ease, opacity 0.25s ease;
+    transition: opacity 0.25s ease;
 }
 
 .carousel-card {
@@ -1552,12 +1549,6 @@ body.is-ready .hero-buttons {
 }
 
 .features-container,
-.product-intro,
-footer {
-    --pointer-x: 50%;
-    --pointer-y: 50%;
-}
-
 .features-container {
     position: relative;
     overflow: hidden;
@@ -1583,7 +1574,7 @@ footer::after {
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: radial-gradient(300px circle at var(--pointer-x) var(--pointer-y), rgba(89, 183, 255, 0.14), transparent 62%);
+    background: none;
     opacity: 0;
     transition: opacity var(--transition-medium);
     pointer-events: none;
@@ -1598,7 +1589,7 @@ footer:hover {
 .features-container:hover::after,
 .product-intro:hover::before,
 footer:hover::after {
-    opacity: 1;
+    opacity: 0;
 }
 
 .feature-image-large {
@@ -2119,8 +2110,8 @@ strong {
 }
 
 .carousel-card-image {
-    height: 74%;
-    padding: 1.45rem 1.2rem 1rem;
+    height: 68%;
+    padding: 1.35rem 1.2rem 0.8rem;
 }
 
 .carousel-card-image::before {
@@ -2138,8 +2129,8 @@ strong {
 }
 
 .carousel-card-overlay {
-    min-height: 26%;
-    padding: 1rem 1rem 1.15rem;
+    min-height: 32%;
+    padding: 0.95rem 1rem 1.35rem;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 250, 244, 0.96) 38%, rgba(255, 250, 244, 1) 100%);
 }
 
@@ -2150,7 +2141,8 @@ strong {
 }
 
 .carousel-title {
-    font-size: 2rem;
+    font-size: 1.72rem;
+    line-height: 0.96;
     color: var(--ink-strong);
 }
 
@@ -2162,6 +2154,22 @@ strong {
     background: rgba(33, 31, 58, 0.06);
     font-size: 0.8rem;
     color: var(--ink-soft);
+}
+
+.carousel-buy {
+    display: inline-flex;
+    align-self: flex-start;
+    margin-top: 0.7rem;
+    padding: 0.62rem 1.05rem;
+    border-radius: 999px;
+    background: var(--ink-strong);
+    color: #ffffff;
+    border: 1px solid rgba(33, 31, 58, 0.12);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    box-shadow: 0 14px 28px rgba(33, 31, 58, 0.18);
+    transition: none;
 }
 
 .carousel-btn {
@@ -2736,6 +2744,14 @@ footer svg {
 .carousel-card.active .carousel-flavor {
     color: var(--ink-strong);
     background: rgba(255, 211, 72, 0.28);
+}
+
+.carousel-card:hover .carousel-buy,
+.carousel-card.active .carousel-buy {
+    transform: none;
+    background: var(--ink-strong);
+    box-shadow: 0 14px 28px rgba(33, 31, 58, 0.18);
+    filter: none;
 }
 
 .feature-text-toggle {
